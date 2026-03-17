@@ -1,7 +1,6 @@
-English Version
 Overview
 
-Shift is a lightweight and flexible scheduling management web application designed to help teams manage shifts, track workloads, and improve collaboration efficiency.
+Pharmacy_roster_system_backend is a lightweight and flexible scheduling management web application designed to help teams manage shifts, track workloads, and improve collaboration efficiency.
 
 The project features a Django backend and a React frontend (generated and refined with AI assistance).
 It is currently deployed on both Render and AWS, serving as a full-stack portfolio project to demonstrate development, deployment, and cloud integration skills.
