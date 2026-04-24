@@ -55,11 +55,11 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.security.SecurityMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -283,3 +283,22 @@ CSRF_TRUSTED_ORIGINS = [
     "https://shift-f.vercel.app",
     "https://shift-cnkl.onrender.com",
 ]
+
+# 1. 允許憑證（如果你是用 JWT 或 Cookie）
+CORS_ALLOW_CREDENTIALS = True
+
+# 2. 允許的 Header (直接全開，避免漏掉任何一個)
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
+
+# 3. 測試期間直接用這個，排除網域填錯的可能性
+CORS_ALLOW_ALL_ORIGINS = True
