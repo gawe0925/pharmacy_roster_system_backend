@@ -18,14 +18,14 @@ router.register('wage', WageViewSet, basename='wage')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+    path('', include(router.urls)),
     
     # JWT 認證端點
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     
     # 密碼重設 API
-    path('api/password-reset/', PasswordResetRequestView.as_view(), name='password_reset'),
-    path('api/password-reset/confirm/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
-    path('api/password-reset/validate/', PasswordResetTokenValidateView.as_view(), name='password_reset_validate'),
+    path('password-reset/', PasswordResetRequestView.as_view(), name='password_reset'),
+    path('password-reset/confirm/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('password-reset/validate/', PasswordResetTokenValidateView.as_view(), name='password_reset_validate'),
 ]
