@@ -278,3 +278,8 @@ LOGGING = {
         },
     },
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://shift-f.vercel.app",
+    "https://shift-cnkl.onrender.com",
+]
