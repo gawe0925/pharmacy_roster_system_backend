@@ -11,11 +11,11 @@
 
 ---
 
-## 🔍 The Problem
+## 🔍 Overview
 
-At the pharmacy where I work, shift schedules were created manually in Excel, printed out, and corrected by hand when changes were needed. There was no single source of truth, no visibility for staff, and no way to track historical changes.
+A full-stack rostering system prototype designed to replace manual Excel-based scheduling workflows in a pharmacy environment.
 
-I built e-Roster to replace this process with a structured, role-based web application that anyone on the team can access and use.
+The system focuses on backend architecture, role-based access control, scheduling workflows, and REST API design using Django and PostgreSQL.
 
 ---
 
@@ -50,9 +50,7 @@ I built e-Roster to replace this process with a structured, role-based web appli
 
 - **Role-Based API** — Built a Django REST API with role-based permissions, ensuring each user type only accesses relevant data and actions
 
-- **Remote Database Development** — Connected to a remote PostgreSQL instance during local development via VS Code, running migrations and managing tables without a local PostgreSQL installation
-
-- **AI-Assisted Frontend** — Developed the React frontend using AI-assisted tools to visualise backend data and make the system accessible to non-technical users. Backend logic alone is invisible to end users, so the frontend was essential to bridge that gap and allow real people to interact with and benefit from the system
+- **Frontend Integration** — Used AI-assisted React development to build a user interface for roster visibility and interaction with backend scheduling workflows
 
 - **Cloud Deployment** — Deployed backend to Render and frontend to Vercel after initial AWS testing, transitioning to manage infrastructure costs
 
@@ -72,7 +70,7 @@ Database (PostgreSQL)
 
 ## 🎯 Purpose
 
-This project was built from direct observation of a real operational gap, not from a tutorial or brief. The goal was to translate a genuine workplace problem into a working digital solution, and to gain hands-on experience in full-stack development, cloud deployment, and role-based system design.
+Built to explore backend-driven workflow improvements for real operational scheduling problems in a pharmacy environment.
 
 ---
 
