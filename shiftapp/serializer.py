@@ -1,9 +1,12 @@
+import logging
 from decimal import Decimal
 from django.utils import timezone
-from django.db.models import Max, Min
 from rest_framework import serializers
 from datetime import datetime, timedelta
 from .models import Members, Shift, StaffShift, LeaveRequest, LeaveBalance, Wage
+
+
+log = logging.getLogger(__name__)
 
 VALID_POSITIONS = ['full', 'part']
 

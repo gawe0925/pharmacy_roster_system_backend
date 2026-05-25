@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -145,19 +147,33 @@ WSGI_APPLICATION = 'shift.wsgi.application'
 import dj_database_url
 
 DATABASE_URL = os.environ.get("DATABASE_URL")
+# SUPABASE_DB_URL = os.environ.get("SUPABASE_DB_URL")
 
 if DATABASE_URL:
-    # Rander
+    # Supabase
     DATABASES = {
-        'default': dj_database_url.config(
-            default=DATABASE_URL,
-            conn_max_age=600,
+    "default": dj_database_url.config(
+        default=DATABASE_URL,
+        conn_max_age=600,
+        ssl_require=True,
         )
     }
-    # 針對 Render 的 SSL 特別處理
-    if "render.com" in DATABASE_URL:
-        DATABASES['default']['OPTIONS'] = {'sslmode': 'require'}
 
+    DATABASES["default"]["OPTIONS"] = {
+        "sslmode": "require"
+    }
+
+# elif DATABASE_URL:
+#     # Rander
+#     DATABASES = {
+#         'default': dj_database_url.config(
+#             default=DATABASE_URL,
+#             conn_max_age=600,
+#         )
+#     }
+#     # 針對 Render 的 SSL 特別處理
+#     if "render.com" in DATABASE_URL:
+#         DATABASES['default']['OPTIONS'] = {'sslmode': 'require'}
 elif os.environ.get("POSTGRES_DB"):
     # AWS
     DATABASES = {
