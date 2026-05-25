@@ -47,8 +47,10 @@ def validate_deactivation(instance, requested_user, validated_data):
         if instance.is_staff and instance == requested_user:
             log.warning(f"validate_deactivation - staff attempt to deactivate themselves: {instance.email}")
             raise serializers.ValidationError({"is_active": "Cannot deactivate yourself"})
+        if instance.is_manager and instance == requested_user:
+            log.warning(f"validate_deactivation - manager attempt to deactivate themselves: {instance.email}")
+            raise serializers.ValidationError({"is_active": "Manager cannot deactivate themselves"})
     log.debug("validate_deactivation finished")
-
 
 def apply_active_status_changes(instance, validated_data):
     log.debug(f"apply_active_status_changes start - instance: {instance.email}")

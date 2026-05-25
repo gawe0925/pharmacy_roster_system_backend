@@ -36,9 +36,9 @@ class MemberSerializer(serializers.ModelSerializer):
         request = self.context['request']
         user = getattr(request, 'user', None)
 
-        if user and user.email == 'manager@shift.com':
+        if user and user.is_test:
             log.warning(f"MemberSerializer.validate - demo account attempt to create user: {user.email}")
-            raise serializers.ValidationError('Demo account cannot create new user')
+            raise serializers.ValidationError('Test account cannot modify data')
         
         return attrs
     
