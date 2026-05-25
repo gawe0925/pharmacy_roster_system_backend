@@ -29,13 +29,14 @@ class MemberSerializer(serializers.ModelSerializer):
         model = Members
         fields = ['id', 'first_name', 'last_name', 'email', 'mobile',
                   'permanent_position', 'part_time_rate', 'position_type', 
-                  'is_active', 'is_manager', 'is_superuser', 'password']
+                  'is_active', 'is_test', 'is_manager', 'is_superuser', 'password']
         read_only_fields = ['id', 'is_superuser']
 
     def validate(self, attrs):
         request = self.context['request']
         user = getattr(request, 'user', None)
-
+        log.debug(f"MemberSerializer.validate - user: {user.email}, is_test: {user.is_test}")
+        
         if user and user.is_test:
             log.warning(f"MemberSerializer.validate - demo account attempt to create user: {user.email}")
             raise serializers.ValidationError('Test account cannot modify data')
