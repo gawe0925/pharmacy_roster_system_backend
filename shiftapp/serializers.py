@@ -29,7 +29,7 @@ class MemberSerializer(serializers.ModelSerializer):
         model = Members
         fields = ['id', 'first_name', 'last_name', 'email', 'mobile',
                   'permanent_position', 'part_time_rate', 'position_type', 
-                  'is_active', 'is_staff', 'is_superuser', 'password']
+                  'is_active', 'is_manager', 'is_superuser', 'password']
         read_only_fields = ['id', 'is_superuser']
 
     def validate(self, attrs):
@@ -123,7 +123,7 @@ class LeaveRequestSerializer(serializers.ModelSerializer):
         request = self.context.get('request', None)
         if request:
             user = request.user
-            if user.is_staff:
+            if user.is_manager:
                 pass
             else:
                 self.fields.pop('reviewed_by', None)

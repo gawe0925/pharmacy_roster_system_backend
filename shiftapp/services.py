@@ -1,8 +1,7 @@
 import logging
 from django.utils import timezone
-from rest_framework import serializers
 from datetime import datetime
-from decimal import Decimal
+from rest_framework import serializers
 
 from .models import Members, LeaveRequest
 
