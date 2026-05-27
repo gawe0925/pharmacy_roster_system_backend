@@ -1,0 +1,2 @@
+[DEBUG] 2026-05-25 21:11:18,767 shiftapp.serializers: MemberSerializer.validate - user: test@user.com, is_test: True
+[WARNING] 2026-05-25 21:11:18,767 shiftapp.serializers: MemberSerializer.validate - demo account attempt to create user: test@user.com
