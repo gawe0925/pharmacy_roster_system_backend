@@ -20,7 +20,7 @@ from .utils import calculate_end_date
 from .permissions import IsAdminOrReadyOnly
 from .tokens import FiveMinuteTokenGenerator
 from .models import Members, Shift, StaffShift, LeaveRequest, LeaveBalance, Wage
-from .serializer import MemberSerializer, ShiftSerializer, StaffShiftSerializer, LeaveRequestSerializer, LeaveBalanceSerializer, WageSerializer
+from .serializers import MemberSerializer, ShiftSerializer, StaffShiftSerializer, LeaveRequestSerializer, LeaveBalanceSerializer, WageSerializer
 
 # universal function
 def str_to_date(date_str):
@@ -37,7 +37,7 @@ class MemberViewSet(ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
-        if user.is_staff:
+        if user.is_manager:
             if user.is_superuser:
                 return Members.objects.all()
             return Members.objects.exclude(is_superuser=True)
@@ -66,7 +66,7 @@ class LeaveRequestViewSet(ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
-        if user.is_staff:
+        if user.is_manager:
             if user.is_superuser:
                 return LeaveRequest.objects.all()
             return LeaveRequest.objects.exclude(staff__is_superuser=True)
@@ -83,7 +83,7 @@ class LeaveBalanceViewSet(ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
-        if user.is_staff:
+        if user.is_manager:
             return LeaveBalance.objects.all()
         return LeaveBalance.objects.filter(staff=user)
 

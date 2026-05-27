@@ -27,7 +27,8 @@ class Members(AbstractUser):
     position_type = models.CharField(choices=POSITION_TYPES, default='casual', max_length=50)
     start_date = models.DateField(null=True, blank=True)
     end_date = models.DateField(null=True, blank=True)
-    pay_rate = models.DecimalField(decimal_places=2, default=26.55, max_digits=5)
+    is_manager = models.BooleanField(default=False)
+    is_test = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
 
     USERNAME_FIELD = 'email'
@@ -117,7 +118,7 @@ class StaffShift(models.Model):
 
     def staff_position(self):
         if self.staff:
-            if self.staff.position_type == 'full' and self.staff.is_staff:
+            if self.staff.position_type == 'full' and self.staff.is_manager:
                 return f'Manager'
             elif self.staff.position_type == 'part':
                 return f'{self.staff.position_type} {round(self.staff.part_time_rate, 1)}'

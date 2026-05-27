@@ -20,19 +20,19 @@ class MembersAdmin(UserAdmin):
         "permanent_position",
         "position_type",
         "part_time_rate",
-        "is_staff",
+        "is_manager",
     )
 
     fieldsets = (
         (None, {"fields": ("email", "username", "password")}),
         ("Personal info", {"fields": ("first_name", "last_name", "mobile", "permanent_position", "position_type", "part_time_rate")}),
-        ("Permissions", {"fields": ("is_active", "is_staff", "is_superuser", "groups", "user_permissions")}),
+        ("Permissions", {"fields": ("is_active", "is_manager", "is_superuser", "groups", "user_permissions")}),
     )
 
     add_fieldsets = (
         (None, {
             "classes": ("wide",),
-            "fields": ("email", "username", "first_name", "last_name", "mobile", "permanent_position", "position_type", "part_time_rate", "password1", "password2", "is_staff", "is_active"),
+            "fields": ("email", "username", "first_name", "last_name", "mobile", "permanent_position", "position_type", "part_time_rate", "password1", "password2", "is_manager", "is_active"),
         }),
     )
 

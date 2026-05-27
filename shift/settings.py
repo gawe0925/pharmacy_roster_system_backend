@@ -275,20 +275,39 @@ LOGGING = {
     },
 
     'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'standard',
+        },
         'celery_daily_file': {
             'level': 'INFO',
             'class': 'logging.handlers.TimedRotatingFileHandler',
             'filename': os.path.join(BASE_DIR, 'logs', 'celery.log'),
-            'when': 'midnight',          # 每天切一次
-            'backupCount': 14,           # 保留 14 天
+            'when': 'midnight',
+            'backupCount': 14,
+            'formatter': 'standard',
+            'encoding': 'utf-8',
+        },
+        'django_daily_file': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs', 'django.log'),
+            'when': 'midnight',
+            'backupCount': 14,
             'formatter': 'standard',
             'encoding': 'utf-8',
         },
     },
 
     'loggers': {
-        'shiftapp': {  # 你的任務都在這個 app
-            'handlers': ['celery_daily_file'],
+        'shiftapp': {
+            'handlers': ['console', 'django_daily_file'],
+            # when deploey to production, update to be 'INFO'
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'celery': {
+            'handlers': ['console', 'celery_daily_file'],
             'level': 'INFO',
             'propagate': False,
         },
