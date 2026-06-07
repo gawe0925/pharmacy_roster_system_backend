@@ -22,7 +22,7 @@ The system focuses on backend architecture, role-based access control, schedulin
 ## ✨ Features
 
 | Feature | Description |
-
+|---|---|
 | 🗓 Shift Management | Create, edit, and delete shifts with configurable time slots and contextual notes |
 | 👥 Role-Based Access | Four user types: Manager, Full-time, Part-time, and Casual staff — each with different permissions |
 | 📋 Leave Requests | Staff can submit leave requests; managers can approve or decline |
@@ -34,7 +34,7 @@ The system focuses on backend architecture, role-based access control, schedulin
 ## 🛠 Tech Stack
 
 | Category | Technology |
-
+|---|---|
 | Backend | Python, Django REST Framework |
 | Frontend | React (AI-assisted development) |
 | Database | PostgreSQL |
