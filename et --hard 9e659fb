@@ -1,0 +1,85 @@
+[33m8f48237[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdevelop[m[33m, [m[1;31morigin/develop[m[33m)[m fix: add missing python-dotenv dependency for CI
+[33mea9d5db[m feat: add DRF global throttling and rate limiting
+[33m9e659fb[m test: add unit tests for Shift, Member, and LeaveRequest APIs
+[33m8068f09[m fix: use --keepdb to resolve test database conflict in CI
+[33m9bb9432[m ci: add GitHub Actions workflow for automated testing
+[33m7f69793[m debug: add validate log for is_test check
+[33m8cb5294[m update is_test cannot create/udpate data
+[33m6f38a86[m update manager determination from is_staff change to is_manager
+[33m8c35d96[m update Members model table fields
+[33ma653549[m chore: configure logging for shiftapp and celery
+[33mb819ba0[m refactor: clean up serializers, delegate logic to services
+[33m2212c25[m refactor: extract business logic from serializers to service layer
+[33m51015bd[m Merge branch 'main' of https://github.com/gawe0925/shift
+[33m51bf8c4[m Update README.md
+[33mfb9c912[m Update README.md
+[33m3bffaf7[m Update README.md
+[33me072d9a[m Update README.md
+[33mf2c7c4a[m Update README.md
+[33m72f7fd1[m Update README.md
+[33m2955fbe[m Create README.md
+[33m3cffb07[m Merge branch 'main' of https://github.com/gawe0924/shift
+[33m1bba592[m added supabase as SQL and create .env file to address db_url
+[33m29b724b[m Update README.md
+[33m9c378bf[m Update README.md
+[33mf7f9c36[m  update settings for test
+[33m1f2c9b9[m update urls.py's path setting
+[33m0e855e1[m update settings with CSRF setting
+[33m0227855[m Add dj_database_url to requirements
+[33mf06f94e[m update settings
+[33ma83f066[m Update README.md
+[33mbdedad0[m update settings
+[33mfde062d[m update INSTALLED_APPS in settings
+[33m68b3aba[m updated create and update member's process in serializer
+[33m772bb61[m update Member's model and Serializer to prevent demo account to create new user
+[33m4bb9c5b[m update model of Members and serializer
+[33m332c660[m test - try to understand bug
+[33m8b1fb85[m bug fixing
+[33m510cc5c[m fixed bug: username = email now
+[33m502e694[m bug fixing
+[33md5db890[m MemberSerializer bug: superuser cannot add new membe
+[33m44cad21[m update MemberSerializer to prevent demo account to create new staffs
+[33mf961148[m update CORS
+[33m1a5a88d[m update CORS settings
+[33mb20a78d[m CORS settings update again
+[33ma6603d5[m update CORS settings
+[33m15ef2b4[m update cors settings
+[33m951de92[m update settings for cross
+[33md7286a9[m update settings
+[33m5f1b0f1[m update fronted link
+[33ma36ae89[m Update README.md
+[33mfc8b1aa[m Update README.md
+[33ma9732f7[m Update README.md
+[33m6cd6c12[m Create README.md
+[33m97c265c[m update urls
+[33m8726a4e[m update requirement file
+[33m1e8d9e9[m Merge branch 'main' into develop
+[33mb369a51[m update git ignore
+[33mc6fd086[m Merge main into develop, remove __pycache__ conflicts
+[33m7514889[m Merge pull request #1 from gawe0925/feature
+[33mf80b986[m Remove __pycache__ from repo and add .gitignore
+[33m7b5ec00[m update set_password
+[33m673d3ca[m fix set_password bug
+[33mf8b2d3c[m update set_password
+[33m26278a8[m update
+[33mb12a362[m update
+[33med08fc2[m update
+[33m9ddf567[m update
+[33m6b5ba5d[m update
+[33m9340c15[m update
+[33me59c0c6[m update
+[33m0265339[m update
+[33m96a0e29[m update
+[33m0e505ae[m update
+[33md988aa6[m update
+[33m2c13d29[m update
+[33m4bd863f[m update Procfile
+[33m0fa399d[m update settings for depoley
+[33m9242f54[m ready for Render
+[33mbe6b066[m feature 1 done
+[33m87d1b4e[m frontend connecting update
+[33m3183ae3[m modified models and added celery, redis and tasks
+[33me5e2e10[m add and update model fields
+[33m42339d5[m add reserved fields to all models
+[33m4c42215[m fix models field and set up urls and views
+[33m1a2dac0[m set up models

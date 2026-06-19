@@ -1,0 +1,28 @@
+# Git
+.git
+.gitignore
+
+# Python 編譯檔，容器裡會重新產生
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# 本地資料庫，容器有自己的 PostgreSQL
+db.sqlite3
+
+# 環境變數，不能打包進 image
+.env
+
+# 虛擬環境，容器裡會重新 pip install
+venv/
+env/
+.venv/
+
+# IDE 設定
+.vscode/
+.idea/
+
+# Docker 自己
+Dockerfile
+docker-compose.yml
