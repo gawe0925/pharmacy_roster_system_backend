@@ -71,6 +71,13 @@ class ShiftSerializer(serializers.ModelSerializer):
         
     def get_daily_work_hours(self, obj):
         return round(obj.daily_work_hours(), 2)
+    
+
+class StaffShiftListSerializer(serializers.ListSerializer):
+
+    def create(self, validate_data):
+        shifts = [StaffShift(**item) for item in validate_data]
+        return StaffShift.objects.bulk_create(shifts)
 
 
 class StaffShiftSerializer(serializers.ModelSerializer):
@@ -83,15 +90,17 @@ class StaffShiftSerializer(serializers.ModelSerializer):
         fields = ['id', "shift_date", "staff", "staff_name", "shift", "shift_name", 
                   "cover_shift", "alternative_staff", "alternative_staff_name"]
         read_only_fields = ['id']
+
+        list_serializer_class = StaffShiftListSerializer
         
     def get_shift_name(self, obj):
-        return str(obj.shift)
+        return str(obj.shift) if obj.shift else None
 
     def get_staff_name(self, obj):
-        return str(obj.staff)
+        return str(obj.staff) if obj.staff else None
     
     def get_alternative_staff_name(self, obj):
-        return str(obj.alternative_staff)
+        return str(obj.alternative_staff) if obj.alternative_staff else None
         
     def to_representation(self, instance):
         rep = super().to_representation(instance)
